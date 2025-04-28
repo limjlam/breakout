@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1dh2w1de20ui"]
+
+[ext_resource type="Texture2D" uid="uid://b6ipw3iafsn27" path="res://assets/sprites/pong_paddle.png" id="1_7e2se"]
+[ext_resource type="Script" path="res://scripts/paddle.gd" id="1_orcy3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18t3p"]
+
+[node name="Paddle" type="CharacterBody2D"]
+script = ExtResource("1_orcy3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = ExtResource("1_7e2se")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_18t3p")
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(0, -10, 10, -10, 20, -9, 30, -8, 40, -5, -40, -5, -29, -8, -20, -9, -10, -10)

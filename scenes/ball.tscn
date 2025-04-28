@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cid1afc8378qp"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_mnubc"]
+[ext_resource type="Texture2D" uid="uid://24qxihwqdoab" path="res://assets/sprites/pong_ball.png" id="1_npguc"]
+[ext_resource type="AudioStream" uid="uid://dnkyj5s87etxf" path="res://assets/sounds/ball.wav" id="2_epy2g"]
+[ext_resource type="AudioStream" uid="uid://utqdkjhhmxcm" path="res://assets/sounds/score.wav" id="4_hnvr4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1vnn"]
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_mnubc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_npguc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p1vnn")
+
+[node name="sfx_ball" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_epy2g")
+
+[node name="sfx_score" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hnvr4")

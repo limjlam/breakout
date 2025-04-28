@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn8xekvq38tuc"]
+
+[ext_resource type="Texture2D" uid="uid://hqo211buamwj" path="res://assets/sprites/breakout_brick.png" id="1_oplcy"]
+[ext_resource type="Script" path="res://scripts/brick.gd" id="1_y8tn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynpnj"]
+size = Vector2(32, 12)
+
+[node name="Brick" type="StaticBody2D"]
+script = ExtResource("1_y8tn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oplcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ynpnj")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b46q2iimf7slq"]
+
+[ext_resource type="Script" path="res://scripts/lost_zone.gd" id="1_v1tsm"]
+[ext_resource type="AudioStream" uid="uid://lffow1dnj2ai" path="res://assets/sounds/lost.wav" id="2_2oos3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3j6v"]
+
+[node name="LostZone" type="Area2D"]
+script = ExtResource("1_v1tsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g3j6v")
+
+[node name="sfx_lost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2oos3")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
